@@ -1,0 +1,57 @@
+<app-header></app-header>
+
+<div class="perfil-container">
+  
+
+  <div class="profile-info">
+    <h2>Perfil Administrador</h2>
+    <!-- Imagen de perfil -->
+    <div class="profile-picture">
+      <img [src]="profilePicture || 'assets/UsuarioSinFoto.png'" alt="" class="profile-img" />
+    </div>
+
+    <!-- Contenedor para dos columnas -->
+    <div class="info-fields">
+      <div class="info-field">
+        <label>Nombre</label>
+        <p>{{ admin.nombre }}</p>
+      </div>
+
+      <div class="info-field">
+        <label>Apellidos</label>
+        <p>{{ admin.apellidos }}</p>
+      </div>
+
+      <div class="info-field">
+        <label>Correo</label>
+        <p>{{ admin.correo }}</p>
+      </div>
+
+      <div class="info-field">
+        <label>Centro de Trabajo</label>
+        <p>{{ admin.centroTrabajo }}</p>
+      </div>
+
+      <!-- Checkbox para "Interno" -->
+      <div class="info-field">
+        <label>
+          <input type="checkbox" [(ngModel)]="admin.interno" />
+          Interno
+        </label>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn" (click)="editUser(this.admin.correo)">Editar Perfil</button>
+    </div>
+  </div>
+
+  <!-- Botón para volver -->
+  <div class="back-button-container">
+    <button class="back-button" (click)="navigateTo('/ventana-principal')">Volver</button>
+  </div>
+  <app-loader *ngIf="isLoading"></app-loader>
+
+  <app-footer></app-footer>
+</div>
+
+

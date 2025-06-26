@@ -1,0 +1,63 @@
+<app-header></app-header>
+<div class="perfil-container">  
+  <div class="profile-info">
+    <h2>Perfil Empleado</h2>
+    
+    <!-- Imagen de perfil -->
+    <div class="profile-picture">
+      <img [src]="profilePicture ? profilePicture : 'assets/UsuarioSinFoto.png'" alt="Foto de perfil" class="profile-img" />
+    </div>
+    
+    <!-- Contenedor para dos columnas -->
+    <div class="info-fields">
+      <!-- Columna 1 -->
+      <div class="info-field">
+        <label>Nombre</label>
+        <p>{{ user.nombre }}</p>
+      </div>
+
+      <div class="info-field">
+        <label>Apellidos</label>
+        <p>{{ user.apellidos }}</p>
+      </div>
+
+      <div class="info-field">
+        <label>Correo</label>
+        <p>{{ user.correo }}</p>
+      </div>
+
+      <!-- Columna 2 -->
+      <div class="info-field">
+        <label>Departamento</label>
+        <p>{{ user.depart }}</p>
+      </div>
+
+      <div class="info-field">
+        <label>Centro de Trabajo</label>
+        <p>{{ user.centroTrabajo }}</p>
+      </div>
+
+      <div class="info-field">
+        <label>Fecha de alta</label>
+        <p>{{ user.alta }}</p>
+      </div>
+
+      <div class="info-field">
+        <label>Perfil</label>
+        <p>{{ user.perfil }}</p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn" (click)="editUser(this.user.correo)">Editar Perfil</button>
+    </div>
+  </div>
+
+  <!-- Botón para volver -->
+  <div class="back-button-container">
+    <button class="back-button" (click)="navigateTo('/ventana-principal')">Volver</button>
+  </div>
+
+  <app-loader *ngIf="isLoading"></app-loader>
+  <app-footer></app-footer>
+</div>

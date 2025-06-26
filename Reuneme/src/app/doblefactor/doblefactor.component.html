@@ -1,0 +1,42 @@
+<app-header></app-header>
+
+<div class="bg-container"></div>
+
+<div class="notification">
+    <span class="notification-icon">⚠️</span> Prevención de delitos cibernéticos
+    <a href="https://www.docusign.com/es-mx/blog/desarrolladores/delitos-informaticos-como-evitar" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="notification-link">
+            Por favor, revise estos consejos importantes
+    </a> sobre cómo prevenir el ciberdelito, como reconocer nuestras comunicaciones oficiales y habilitar la autenticación de dos factores.
+</div>
+
+<main class="auth-container">
+    <h2 class="auth-title">Por favor, introduzca su código de autenticación de dos factores</h2>
+    <div class="code-input-container">
+        <input type="text" maxlength="6" class="code-input" placeholder="0 1 2 3 4 5" [(ngModel)]="authCode" (keyup.enter)="verificarCodigo()">
+    </div>
+    <button class="confirm-button" (click)="verificarCodigo()">Confirmar</button>
+</main>
+
+
+<!-- Modal -->
+<div *ngIf="isModalOpen" class="modal">
+    <div *ngIf="isModalOpen" class="modal">
+        <div class="modal-content">
+            <h3>Activar segundo factor de autenticación</h3>
+            <p>1. Para activar el segundo factor de autenticación, instale Google Authenticator en su teléfono y escanee el código QR.</p>
+            <img [src]="qrCodeUrl" alt="Código QR" class="qr-image">
+            <p>2. Escriba el código generado por Google Authenticator y presione aceptar.</p>
+            <div class="input-group">
+                <label for="auth-code">Código</label>
+                <input type="text" id="auth-code" placeholder="Ingrese el código" [(ngModel)]="authCode" (keyup.enter)="verificarCodigo()">
+            </div>
+            <button class="accept-button" (click)="verificarCodigo()">Aceptar</button>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>
+

@@ -1,0 +1,80 @@
+.footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(28, 28, 28, 0.95);
+    padding: 1.1vh 2.2vh; /* Equivalente a 10px y 20px */
+    display: flex;
+    justify-content: space-between; /* Espacio entre los enlaces y el copyright */
+    align-items: center;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+    box-shadow: 0 -0.22vh 0.55vh rgba(0, 0, 0, 0.5); /* Equivalente a -2px y 5px */
+    z-index: 10;
+    margin-top: 2.2vh; /* Equivalente a 20px */
+}
+
+@media (max-height: 700px), (max-width: 650px) {
+    .footer {
+        display: none; /* Oculta el footer completamente */
+    }
+}
+
+@media (max-height: 700px), (max-width:650px) {
+    .footer {
+        display: flex;
+    }
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3.3vh; 
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    gap: 2.2vh;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    position: relative;
+}
+
+.footer-links li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -1.1vh; /* Equivalente a -10px */
+    top: 50%; /* Alinea verticalmente */
+    transform: translateY(-50%);
+    height: 1.65vh; /* Equivalente a 15px */
+    width: 0.11vh; /* Equivalente a 1px */
+    background-color: #666; /* Color de la línea */
+    opacity: 0.5; /* Suaviza el color */
+}
+
+.footer-links li a {
+    color: #b3b3b3;
+    text-decoration: none;
+    font-size: 1.54vh; /* Equivalente a 14px */
+}
+
+.footer-links li a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.footer-info {
+    font-size: 1.32vh;
+    color: #b3b3b3;
+    text-align: right;
+    margin-left: auto; 
+}
+
+.footer-info span {
+    font-weight: bold;
+}
